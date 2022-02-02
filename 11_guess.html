@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Gæt mit tal mellem 0 og 20</p>
+
+    <input type="text" id="gæt" />
+
+    <button>Gæt!</button>
+    <button id="nyt_spil">Nyt Spil</button>
+
+    <script>
+      /* variabler og klikbarhed */
+
+      let tal = Math.round(Math.random() * 20);
+
+      let guess;
+      let antal = 1;
+
+      document.querySelector("button").addEventListener("click", quessTal);
+      document.querySelector("#nyt_spil").addEventListener("click", nytSpil);
+      document.querySelector("#nyt_spil").style.visibility = "hidden";
+
+      /* funktionen */
+
+      function quessTal() {
+        guess = document.querySelector("#gæt").value;
+
+        if (guess == tal) {
+          console.log("Rigtigt\ndu prøvede " + antal + " gange");
+
+          document.querySelector("#nyt_spil").style.visibility = "visible";
+          document.querySelector("button").style.visibility = "hidden";
+        } else if (tal > guess) {
+          console.log("For lavt - prøv igen!");
+          antal++;
+        } else {
+          console.log("For højt - prøv igen!");
+          antal++;
+        }
+      }
+
+      /* funktion så man kan genstarte*/
+      function nytSpil() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
