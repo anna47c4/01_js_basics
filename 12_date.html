@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>Din alder</p>
+
+      <input type="text" id="dinAlderTxt" />
+
+      <p>Din dates alder</p>
+
+      <input type="text" id="dinDatesAlderTxt" />
+      <button>Går det?</button>
+    </div>
+
+    <script>
+      /* variabler */
+      let min;
+      let max;
+      let dinAlder;
+      let datesAlder;
+
+      /* klikbarhed */
+      document
+        .querySelector("button")
+        .addEventListener("click", button_clicked);
+
+      /* funktion */
+
+      function button_clicked() {
+        dinAlder = document.querySelector("#dinAlderTxt").value;
+        datesAlder = document.querySelector("#dinDatesAlderTxt").value;
+
+        /* udregninger til hvor ung og gammel daten skal være*/
+        min = Math.round((dinAlder / 2) * 7);
+        max = Math.round(dinAlder - 7) * 2;
+
+        /* if-sætninger til at afgøre hvorvidt det er for ungt eller gammelt*/
+        if (
+          !Number(dinAlder) ||
+          dinAlder < 15 ||
+          !Number(datesAlder) ||
+          datesAlder < 15
+        ) {
+          /*send besked ud om at de ikke må bruge programmet hvis de er for unge*/
+
+          console.log("pogrammet er ikke for mindreårige!");
+        } else {
+          /* hvis det er inden for rammerne er det fint */
+          if (datesAlder >= min && datesAlder <= max) {
+            console.log("Ok, det er passende");
+          }
+        }
+        /* hvis daten er for ung */
+        if (datesAlder <= min) {
+          console.log(
+            "Du er " +
+              dinAlder +
+              " og din date er " +
+              datesAlder +
+              "\nDin date er for " +
+              (min - datesAlder) +
+              " år for ung"
+          );
+        } else if (datesAlder >= max) {
+          /* hvis daten er for gammel */
+          console.log(
+            "Du er " +
+              dinAlder +
+              " og din date er " +
+              datesAlder +
+              "\nDin date er " +
+              (datesAlder - max) +
+              " år for gammel!"
+          );
+        }
+      }
+
+      /* FEJL I, DER ER NOGET DER SKAL BYTTES RUNDT, VÆR OPMÆRKSOM*/
+    </script>
+  </body>
+</html>
