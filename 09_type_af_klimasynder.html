@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* jeg laver timerne til en variabel først*/
+      let timer = 3;
+
+      /* og så udregningen, og variabel til kommentarerne*/
+      let c02UdledtIKgVedFlyrejse = timer * 109;
+
+      let klimaSynderKommentar;
+
+      /* if sætninger, som kan afgøre og styre udfaldet af kommentarerne, alt efter udledning*/
+
+      if (c02UdledtIKgVedFlyrejse < 100) {
+        klimaSynderKommentar = "Tæt på Thunberg.";
+      } else if (c02UdledtIKgVedFlyrejse < 200) {
+        klimaSynderKommentar = "Jaja, du behøver ikke at melde dig ud af Å!";
+      } else if (c02UdledtIKgVedFlyrejse < 600) {
+        klimaSynderKommentar = "Det er godt for turismen i nordeuropa";
+      } else {
+        klimaSynderKommentar =
+          "Nå ja, vi kan jo altid kolonisere en anden planet";
+      }
+
+      /* udskriv i konsollen, ved brug af template litterals, og variablerne*/
+      console.log(
+        `Du har fløjet ${timer} timer og udledt ${c02UdledtIKgVedFlyrejse} kg CO2. ${klimaSynderKommentar}`
+      );
+    </script>
+  </body>
+</html>
